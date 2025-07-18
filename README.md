@@ -29,7 +29,7 @@ Script console utilisant le théorème de Pythagore pour :
 2. Lancer le script :
 
 ```bash
-node script.js
+node Pythagore.js
 ```
 
 ---
