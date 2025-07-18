@@ -32,19 +32,25 @@ if (mode !== "normal" && mode !== "vérification") {
   console.log(`\x1b[32mMode : ${mode}\x1b[0m`);
 }
 
-if (!coteatrouver) {
-  console.log(`\x1b[31mCôté à trouver\x1b[0m`);
+if (mode !== "vérification") {
+  if (!coteatrouver) {
+    console.log(`\x1b[31mCôté à trouver\x1b[0m`);
+  }
+  if (
+    coteatrouver !== "cote1" &&
+    coteatrouver !== "cote2" &&
+    coteatrouver !== "hypoténus"
+  ) {
+    console.error(`\x1b[1;31mLe côté à trouver n'est pas valide !\x1b[0m`);
+    process.exit(1);
+  } else {
+    console.log(`\x1b[32mCôté à trouver : ${coteatrouver}\x1b[0m`);
+  }
 }
-if (
-  coteatrouver !== "cote1" &&
-  coteatrouver !== "cote2" &&
-  coteatrouver !== "hypoténus"
-) {
-  console.error(`\x1b[1;31mLe côté à trouver n'est pas valide !\x1b[0m`);
-  process.exit(1);
-} else {
-  console.log(`\x1b[32mCôté à trouver : ${coteatrouver}\x1b[0m`);
+if (mode === "vérification") {
+  console.log(`\x1b[2;37;9mCôté à trouver\x1b[0m \x1b[2;37m(Mode ${mode})\x1b[0m`);
 }
+
 
 if (!cote1) {
   console.log(`\x1b[31mCôte n°1\x1b[0m`);
