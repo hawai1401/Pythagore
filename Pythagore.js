@@ -10,9 +10,9 @@ const coteatrouver = paramètres["Coté à trouver"].toLocaleLowerCase();
 
 let cote1 = paramètres["Côté n°1"];
 let cote2 = paramètres["Côté n°2"];
-let hypoténus = paramètres.Hypoténus;
+let hypotenuse = paramètres.Hypoténuse;
 
-let manquant;
+let manquant = 0;
 
 // Vérification des variables
 
@@ -41,7 +41,7 @@ if (mode !== "vérification") {
   if (
     coteatrouver !== "cote1" &&
     coteatrouver !== "cote2" &&
-    coteatrouver !== "hypoténus"
+    coteatrouver !== "hypotenuse"
   ) {
     console.error(`\x1b[1;31mLe côté à trouver n'est pas valide !\x1b[0m`);
     process.exit(1);
@@ -69,29 +69,29 @@ if (!cote2) {
   console.log(`\x1b[32mCôté n°2 : ${cote2}\x1b[0m`);
 }
 
-if ((manquant = 2)) {
+if (manquant === 2) {
   console.error(
     `\x1b[1;31mLe nombre de côté défini n'est pas suffisant !\x1b[0m`
   );
   process.exit(1);
 }
 
-if (!hypoténus) {
-  console.log(`\x1b[31mHypoténus\x1b[0m`);
+if (!hypotenuse) {
+  console.log(`\x1b[31mhypotenuse\x1b[0m`);
   manquant++;
 } else {
-  console.log(`\x1b[32mHypoténus : ${hypoténus}\x1b[0m`);
+  console.log(`\x1b[32mhypotenuse : ${hypotenuse}\x1b[0m`);
 }
 
 console.groupEnd();
 
-if ((manquant = 2)) {
+if (manquant === 2) {
   console.error(
     `\x1b[1;31mLe nombre de côté défini n'est pas suffisant !\x1b[0m`
   );
   process.exit(1);
 }
-if ((mode = "vérification" && (manquant = 3))) {
+if (mode === "vérification" && manquant === 3) {
   console.error(
     `\x1b[1;31mLe nombre de côté défini n'est pas suffisant pour le mode vérification !\x1b[0m`
   );
@@ -100,23 +100,23 @@ if ((mode = "vérification" && (manquant = 3))) {
 
 // Application du théorème
 
-function pythagore(cote1, cote2, hypoténus, mode, coteatrouver, unité) {
+function pythagore(cote1, cote2, hypotenuse, mode, coteatrouver, unité) {
   if (mode === "normal") {
-    if (coteatrouver === "hypoténus") {
+    if (coteatrouver === "hypotenuse") {
       const cote3 = Math.sqrt(cote1 ** 2 + cote2 ** 2);
-      console.log(`L'hypoténus mesure \x1b[32m${cote3}\x1b[0m ${unité}.`);
+      console.log(`L'hypotenuse mesure \x1b[32m${cote3}\x1b[0m ${unité}.`);
     }
     if (coteatrouver === "cote1") {
-      cote1 = Math.sqrt(hypoténus ** 2 - cote2 ** 2);
+      cote1 = Math.sqrt(hypotenuse ** 2 - cote2 ** 2);
       console.log(`Le côté n°1 mesure \x1b[32m${cote1}\x1b[0m ${unité}.`);
     }
     if (coteatrouver === "cote2") {
-      cote2 = Math.sqrt(hypoténus ** 2 - cote1 ** 2);
+      cote2 = Math.sqrt(hypotenuse ** 2 - cote1 ** 2);
       console.log(`Le côté n°2 mesure \x1b[32m${cote2}\x1b[0m ${unité}.`);
     }
   }
   if (mode === "vérification") {
-    const calcul1 = hypoténus ** 2;
+    const calcul1 = hypotenuse ** 2;
     const calcul2 = cote1 ** 2 + cote2 ** 2;
     if (calcul1 === calcul2) {
       console.log("\x1b[32mLe triangle est rectangle.\x1b[0m");
@@ -126,4 +126,4 @@ function pythagore(cote1, cote2, hypoténus, mode, coteatrouver, unité) {
   }
 }
 
-pythagore(cote1, cote2, hypoténus, mode, coteatrouver, unité);
+pythagore(cote1, cote2, hypotenuse, mode, coteatrouver, unité);
