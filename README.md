@@ -21,7 +21,7 @@ Script console utilisant le théorème de Pythagore pour :
 
   "Côté n°1": "",
   "Côté n°2": "",
-  "Hypoténus": ""
+  "Hypoténuse": ""
 }
 ```
 
