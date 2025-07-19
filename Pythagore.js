@@ -12,6 +12,8 @@ let cote1 = paramètres["Côté n°1"];
 let cote2 = paramètres["Côté n°2"];
 let hypoténus = paramètres.Hypoténus;
 
+let manquant;
+
 // Vérification des variables
 
 console.group("\x1b[3mVérification des variables...\x1b[0m");
@@ -48,29 +50,53 @@ if (mode !== "vérification") {
   }
 }
 if (mode === "vérification") {
-  console.log(`\x1b[2;37;9mCôté à trouver\x1b[0m \x1b[2;37m(Mode ${mode})\x1b[0m`);
+  console.log(
+    `\x1b[2;37;9mCôté à trouver\x1b[0m \x1b[2;37m(Mode ${mode})\x1b[0m`
+  );
 }
-
 
 if (!cote1) {
   console.log(`\x1b[31mCôte n°1\x1b[0m`);
+  manquant++;
 } else {
   console.log(`\x1b[32mCôte n°1 : ${cote1}\x1b[0m`);
 }
 
 if (!cote2) {
   console.log(`\x1b[31mCôté n°2\x1b[0m`);
+  manquant++;
 } else {
   console.log(`\x1b[32mCôté n°2 : ${cote2}\x1b[0m`);
 }
 
+if ((manquant = 2)) {
+  console.error(
+    `\x1b[1;31mLe nombre de côté défini n'est pas suffisant !\x1b[0m`
+  );
+  process.exit(1);
+}
+
 if (!hypoténus) {
   console.log(`\x1b[31mHypoténus\x1b[0m`);
+  manquant++;
 } else {
   console.log(`\x1b[32mHypoténus : ${hypoténus}\x1b[0m`);
 }
 
 console.groupEnd();
+
+if ((manquant = 2)) {
+  console.error(
+    `\x1b[1;31mLe nombre de côté défini n'est pas suffisant !\x1b[0m`
+  );
+  process.exit(1);
+}
+if ((mode = "vérification" && (manquant = 3))) {
+  console.error(
+    `\x1b[1;31mLe nombre de côté défini n'est pas suffisant pour le mode vérification !\x1b[0m`
+  );
+  process.exit(1);
+}
 
 // Application du théorème
 
@@ -78,21 +104,15 @@ function pythagore(cote1, cote2, hypoténus, mode, coteatrouver, unité) {
   if (mode === "normal") {
     if (coteatrouver === "hypoténus") {
       const cote3 = Math.sqrt(cote1 ** 2 + cote2 ** 2);
-      console.log(
-        `L'hypoténus mesure \x1b[32m${cote3}\x1b[0m ${unité}.`
-      );
+      console.log(`L'hypoténus mesure \x1b[32m${cote3}\x1b[0m ${unité}.`);
     }
     if (coteatrouver === "cote1") {
       cote1 = Math.sqrt(hypoténus ** 2 - cote2 ** 2);
-      console.log(
-        `Le côté n°1 mesure \x1b[32m${cote1}\x1b[0m ${unité}.`
-      );
+      console.log(`Le côté n°1 mesure \x1b[32m${cote1}\x1b[0m ${unité}.`);
     }
     if (coteatrouver === "cote2") {
       cote2 = Math.sqrt(hypoténus ** 2 - cote1 ** 2);
-      console.log(
-        `Le côté n°2 mesure \x1b[32m${cote2}\x1b[0m ${unité}.`
-      );
+      console.log(`Le côté n°2 mesure \x1b[32m${cote2}\x1b[0m ${unité}.`);
     }
   }
   if (mode === "vérification") {
