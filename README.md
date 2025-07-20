@@ -1,60 +1,81 @@
-# Pythagore — Script JavaScript
+# Théorème de Pythagore – Interface Web (Javascript)
 
-Script console utilisant le théorème de Pythagore pour :
-
-- calculer un côté manquant (`côté n°1`, `côté n°2`, ou `hypoténus`) ;
-- ou vérifier si un triangle est rectangle.
+Ce projet est une interface web interactive permettant d'appliquer ou de vérifier le théorème de Pythagore. Il repose entièrement sur HTML, CSS et Javascript, sans backend.
 
 ---
 
-## Utilisation
+## Fonctionnalités
 
-1. Remplir les paramètres dans `Paramètres.json` :
-
-```json
-{
-  "Unité de mesure": "",
-
-  "Mode": "",
-
-  "Coté à trouver": "",
-
-  "Côté n°1": "",
-  "Côté n°2": "",
-  "Hypoténuse": ""
-}
-```
-
-
-2. Lancer le script :
-
-```bash
-node Pythagore.js
-```
+- **Deux modes** :
+  - **Normal** : calcule un côté manquant (côté ou hypoténuse)
+  - **Vérification** : teste si un triangle est rectangle
+- **Affichage visuel** des valeurs sur un triangle stylisé
+- **Console intégrée** pour afficher le résultat
+- **Interface responsive** (mobile & desktop)
 
 ---
 
-## Valeurs attendues
+## Structure
 
-- `"Unité de mesure"` : ex. `"mètres"`, `"m"`, etc.
-- `"Mode"` : `"normal"` ou `"vérification"`
-- `"Coté à trouver"` :
-  - `"cote1"`
-  - `"cote2"`
-  - `"hypoténus"`
+### `index.html`
+Structure du formulaire, composants d'entrée, console de réponse et visualisation du triangle.
 
-- `"Côté n°1"`, `"Côté n°2"`, `"Hypoténus"` : nombre ou `""` si inconnu (non utilisé dans le mode courant)
+### `style.css`
+Stylisation responsive avec design coloré et animations de boutons.
 
----
-
-## Fonctionnement
-
-- En **mode `normal`**, le script calcule le côté demandé à partir des deux autres.
-- En **mode `vérification`**, il teste si le triangle est rectangle.
-- En cas de champ manquant ou invalide, le script s’arrête avec un message d’erreur.
+### `app.js`
+Script gérant :
+- la logique métier (calcul du côté manquant ou vérification)
+- les entrées utilisateur
+- l'affichage dynamique
+- les erreurs critiques
 
 ---
 
-## Licence
+## Lancement
 
-Aucune licence fournie. Tous droits réservés.
+Aucune dépendance ni installation requise.
+
+1. Cloner le projet ou télécharger les fichiers
+2. Ouvrir `index.html` dans un navigateur
+
+---
+
+## Exemple d'utilisation
+
+### Mode "Normal"
+- Choisir "Normal"
+- Sélectionner le côté à trouver (`côté` ou `hypoténuse`)
+- Entrer les deux autres longueurs
+- Cliquer sur **Calculer**
+- Résultat affiché en bas + mise à jour du triangle
+
+### Mode "Vérification"
+- Choisir "Vérification"
+- Entrer les trois longueurs
+- Cliquer sur **Calculer**
+- Affiche si le triangle est rectangle ou non
+
+---
+
+## Dépendances externes
+
+- [Google Fonts - Poppins, Roboto](https://fonts.google.com/)
+- Aucun framework ni bibliothèque tierce
+
+---
+
+## Remarques
+
+- Tous les champs ne sont pas requis en mode "normal", mais il faut **exactement 2 longueurs**
+- En mode "vérification", les **3 longueurs doivent être définies**
+- L’unité affichée est fixée à `mètres`, modifiable dans la variable `unite` du script JS
+
+---
+
+## Auteurs
+
+- Interface & logique : [Ton nom ou pseudo]
+- Technologies : HTML5 / CSS3 / Javascript ES6
+
+---
