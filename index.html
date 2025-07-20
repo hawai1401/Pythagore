@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Théorème de Pythagore - Javascript</title>
+  </head>
+  <body>
+    <h1>
+      Théorème de Pythagore<br />
+      - <br />Javascript
+    </h1>
+    <form>
+      <div id="part1">
+        <h3>Paramètres</h3>
+        <select name="mode" id="mode" placeholder="Mode d'application" required>
+          <option value="undefined" selected disabled>Mode</option>
+          <option value="normal">Normal</option>
+          <option value="vérification">Vérification</option>
+        </select>
+        <select name="tofind" id="tofind" placeholder="Côté à trouver">
+          <option value="undefined" selected>Côté à trouver</option>
+          <option value="cote2">Côté</option>
+          <option value="hypotenuse">Hypoténuse</option>
+        </select>
+      </div>
+      <div id="part2">
+        <h3>Mesures</h3>
+        <input type="text" name="cote1" id="first" placeholder="Côté" /><input
+          type="text"
+          name="cote2"
+          id="second"
+          placeholder="Côté à trouver"
+          required
+        />
+        <input
+          type="text"
+          name="hypoténuse"
+          id="third"
+          placeholder="Hypoténuse"
+        />
+      </div>
+      <div id="boutons">
+        <button id="Calculer" type="submit">Calculer</button>
+        <button type="reset">Réinitialiser</button>
+      </div>
+    </form>
+    <div id="console"><h3>Réponse</h3></div>
+    <div id="triangle">
+      <div class="trait" id="cote1">
+        <p id="trait1"></p>
+      </div>
+      <div class="trait" id="cote2">
+        <p id="trait2"></p>
+      </div>
+      <div class="trait" id="hypotenuse">
+        <p id="trait3"></p>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
