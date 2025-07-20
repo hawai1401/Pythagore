@@ -75,7 +75,7 @@ Aucune dépendance ni installation requise.
 
 ## Auteurs
 
-- Interface & logique : [Ton nom ou pseudo]
+- Interface & logique : hawai1401
 - Technologies : HTML5 / CSS3 / Javascript ES6
 
 ---
